@@ -14,7 +14,7 @@ if [[ ! $1 =~ ^[A-Fa-f0-9]{6}$ ]]; then
 fi
 
 # Use sed to replace all hex codes in .svg files
-sed -i'' -e "s/#\([A-Fa-f0-9]\{6\}\)/#$1/g" svg/*.svg
+sed -i.bak "s/#\([A-Fa-f0-9]\{6\}\)/#$1/g" svg/*.svg && rm svg/*.bak
 
 # Putting sed in here for portability.
 # Personally I prefer https://github.com/chmln/sd
